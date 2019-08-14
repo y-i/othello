@@ -1,0 +1,28 @@
+{
+  "name": "othello",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/y-i/othello.git",
+  "author": "y-i <y-i@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "npm-run-all --serial clean build:development serve:start",
+    "serve:start": "npm-run-all --parallel serve:watch serve:server",
+    "serve:watch": "webpack --watch --progress --config webpack.config.js",
+    "serve:server": "browser-sync start --config bs-config.js",
+    "build": "npm-run-all --serial clean build:production",
+    "build:production": "webpack -p --progress --devtool hidden-source-map --config webpack.config.js",
+    "build:development": "webpack --progress --config webpack.config.js",
+    "clean": "rm -rf ./dist/js/*"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "private": true
+}
