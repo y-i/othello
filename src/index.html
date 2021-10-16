@@ -22,21 +22,27 @@
         background-color: lightgreen;
         position: relative;
       }
-      [data-stone="1"]::after {
-        content: "";
+      [data-stone='black']::after {
+        content: '';
         position: absolute;
         top: 1px;
         left: 1px;
         border: 14px solid black;
         border-radius: 50%;
       }
-      [data-stone="2"]::after {
-        content: "";
+      [data-stone='white']::after {
+        content: '';
         position: absolute;
         top: 1px;
         left: 1px;
         border: 14px solid white;
         border-radius: 50%;
+      }
+      .candidate[data-stone='black']::after {
+        opacity: 0.2;
+      }
+      .candidate[data-stone='white']::after {
+        opacity: 0.7;
       }
     </style>
   </head>
@@ -73,6 +79,10 @@
     <span id="turn"></span>
     <div style="position:relative;width:257px;height:257px" id="board"></div>
 
-    <div id="message"></div>
+    <select name="" id="algorithm">
+      <option value="simple" selected>Simple</option>
+      <option value="random">Random</option>
+    </select>
+    <button>Start</button>
   </body>
 </html>
